@@ -1,29 +1,22 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+<script>
+import Header from "./components/Header.vue";
+
+export default{
+  name: 'App',
+  components: {
+    Header
+  },
+}
 </script>
+<!--är detta pinia???-->
+
+<!--header,navbar, footer- visas i alla views-->
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+<div>
+  <Header/>
+</div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
@@ -45,7 +38,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: var(--text);
 }
 
 nav a.router-link-exact-active:hover {
@@ -55,7 +48,7 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  border-left: 1px solid var(--border);
 }
 
 nav a:first-of-type {
