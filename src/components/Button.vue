@@ -1,26 +1,23 @@
 <template>
-	<button @click="onClick()">{{text}}</button>
+	<button>{{btntext}}</button>
 </template>
 
-<script>
-import {useUserStore} from '@/stores/userActions';
+<script setup>
+import {useUserStore} from '@/stores/userStore.js';
 const userStore = useUserStore();
-// export default {
-// 	name: 'Button',
-// 	props: {
-// 		text: String
-// 	},
-// 	methods: {
-// 		onClick() {
-// 			console.log("Klick fungerar");
-// 		}
-// 	}
-// }
+
+const props = defineProps({
+	btntext: {
+		type: String,
+		default: "Ingen text angiven"
+	}
+})
 </script>
 
 <style scoped>
 Button {
 	margin: 5px;
+	color: blue;
 }
 </style>
 

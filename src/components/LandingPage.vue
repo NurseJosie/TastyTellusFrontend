@@ -1,10 +1,12 @@
 <script setup>
 import RecipeCard from "./RecipeCard.vue/"
+import {useUserStore} from '@/stores/userStore.js';
+const userStore = useUserStore();
 </script>
 
 <template>
   <!--SEARCHBAR-->
-<!--ska fyllas med data från databas. Mappa ut alla olika receptkort...-->
+  <!--ska fyllas med data från databas. Mappa ut alla olika receptkort... v-for...-->
   <RecipeCard>
     <template #recipe-title>Recept Titel</template>
     <template #recipe-img>Bild...</template>

@@ -1,0 +1,1 @@
+<!--form med input email, username, password. btn-skapa user. updt DB. skicka user till landingpage(inloggad)-->

@@ -1,10 +1,10 @@
 // använder pinia för state management- user actions
-
-import {defineStore} from 'pinia';
+import { defineStore } from "pinia";
 
 export const useUserStore = defineStore({
 	id: 'user', 
 	state: () => ({
+		//ska fyllas med data från DB
 		id: "123",
 		loggedIn: false,
 		username: "Användarnamn", 
@@ -30,10 +30,10 @@ export const useUserStore = defineStore({
 			//skapa user och lägg till i DB...
 			return console.log("Skapa användare...");
 		},
-		showProfile(){
-			// skicka till profile
-			return console.log("Skicka till profil...");
-		}
+		// showProfile(){
+		// 	// skicka till profile
+		// 	return console.log("Skicka till profil...");
+		// }
 	},
 	// getters VISAR info
 	getters: {

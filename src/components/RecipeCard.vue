@@ -1,4 +1,5 @@
 <template>
+<!--hämta data från getter i recipeStore.-->
 	<div class="card">
 	  <div class="recipe-container">
 		<h2>

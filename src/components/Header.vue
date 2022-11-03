@@ -7,37 +7,44 @@
 <template>
 	<header>
 		<h1>Tasty Tellus</h1>
+		<br/>
 		<h2>Mat med omtanke för planeten!</h2>
-		<div v-if="userStore.loggedIn">
-			<button @click="userStore.showProfile()">Profil</button>
-			<button @click="userStore.logOut()">Logga ut</button>
+		<div v-if="userStore.loggedIn" class="header-btn">
+			<RouterLink to="/profile">Profil</RouterLink>
+			<Button @click="userStore.logOut()" btntext="Logga ut"></Button>
+			<RouterView />
 		</div>
-		<div v-else>
-			<button @click="userStore.createUser()">Skapa konto</button>
-			<button @click="userStore.logIn()">Logga in</button>
+
+		<div v-else class="header-btn">
+			<Button @click="userStore.createUser()" btntext="Skapa användare"></Button>
+			<Button @click="userStore.logIn()" btntext="Logga in"></Button>
 		</div>
 	</header>
 </template>
 
 <script setup>
-import {useUserStore} from '@/stores/userActions';
+import { RouterLink, RouterView } from "vue-router";
+import {useUserStore} from '@/stores/userStore.js';
 import Button from "./Button.vue";
 const userStore = useUserStore();
-// export default {
-// 	name: 'Header',
-// 	components: {
-// 		Button
-// 	}
-// }
 </script>
 <!--är detta pinia???-->
 
 <style scoped>
 header { 
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 20px;
+display: flex;
+justify-content: center;
+	width: 100%;
+        position: fixed;  
+		top: 0;
+		left: 0;
+	background-color: rgb(133, 165, 133);
+}
+h2 {
+	
+}
+.header-btn {
+
 }
 Button {
 	margin: 5px;
