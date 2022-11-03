@@ -5,10 +5,12 @@
 <!--innehåller buttons för skapa inlogg och logga in / logga ut-button -->
 
 <template>
-	<header>
+	<div class="header-container">
+		<header>
 		<h1>Tasty Tellus</h1>
-		<br/>
 		<h2>Mat med omtanke för planeten!</h2>
+		<div class="nav"><NavBar/></div>
+		
 		<div v-if="userStore.loggedIn" class="header-btn">
 			<RouterLink to="/profile">Profil</RouterLink>
 			<Button @click="userStore.logOut()" btntext="Logga ut"></Button>
@@ -20,33 +22,43 @@
 			<Button @click="userStore.logIn()" btntext="Logga in"></Button>
 		</div>
 	</header>
+	</div>
+	
 </template>
 
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import {useUserStore} from '@/stores/userStore.js';
 import Button from "./Button.vue";
+import NavBar from "./NavBar.vue";
 const userStore = useUserStore();
 </script>
 <!--är detta pinia???-->
 
 <style scoped>
-header { 
-display: flex;
-justify-content: center;
+.header-container {
+	background-color: var(--header-footer);
+	color: var(--text);
+	top: 0;
+	position: fixed;
 	width: 100%;
-        position: fixed;  
-		top: 0;
-		left: 0;
-	background-color: rgb(133, 165, 133);
+	text-align: center;
 }
-h2 {
-	
+header { 
+	 
+}
+h1 {
+
 }
 .header-btn {
-
+display: flex;
+justify-content: flex-end;
 }
 Button {
 	margin: 5px;
+}
+.nav {
+	display: flex;
+	justify-content: flex-start;
 }
 </style>

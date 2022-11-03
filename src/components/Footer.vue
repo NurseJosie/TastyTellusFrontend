@@ -15,6 +15,7 @@ footer {
 	width: 100%;
         position: fixed;   
 		bottom: 0;
-	background-color: pink;
+	background-color: var(--header-footer);
+	color: var(--text);
 }
 </style>

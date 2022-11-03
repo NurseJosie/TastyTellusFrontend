@@ -34,10 +34,12 @@
 
   --section-gap: 160px; 
 
-  --text: #462e2e; 
+  --text: #2b1f1f; 
   --text-darker: #140b0b; 
 
-  --vt-background: var(rgb(207, 57, 57));
+  --header-footer: rgba(139, 141, 137, 0.933);
+
+  --background: var(rgb(145, 133, 133));
 
   --border: var(rgb(99, 72, 72));
   --color-border-hover: var(rgb(119, 73, 73));
