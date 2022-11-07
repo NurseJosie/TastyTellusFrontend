@@ -3,8 +3,8 @@
 </template>
 
 <script setup>
-import {useUserStore} from '@/stores/userStore.js';
-const userStore = useUserStore();
+// import {useUserStore} from '@/stores/userStore.js';
+// const userStore = useUserStore();
 
 const props = defineProps({
 	btntext: {
@@ -17,7 +17,6 @@ const props = defineProps({
 <style scoped>
 Button {
 	margin: 5px;
-	color: blue;
 }
 </style>
 

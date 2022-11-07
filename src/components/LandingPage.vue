@@ -1,11 +1,15 @@
 <script setup>
 import RecipeCard from "./RecipeCard.vue/"
 import {useUserStore} from '@/stores/userStore.js';
+import Searchbar from "./Searchbar.vue";
+import SortByDropdown from "./SortByDropdown.vue";
 const userStore = useUserStore();
 </script>
 
 <template>
   <!--SEARCHBAR-->
+<Searchbar/>
+<SortByDropdown/>
   <!--ska fyllas med data från databas. Mappa ut alla olika receptkort... v-for...-->
   <RecipeCard>
     <template #recipe-title>Recept Titel</template>
@@ -14,5 +18,5 @@ const userStore = useUserStore();
     <template #recipe-instr>Recept Instruktioner inkl. antal portioner, ingredienslista och steg för steg.</template>
     <template #recipe-link>Recept länk för copyright</template>
   </RecipeCard>
-
 </template>
+

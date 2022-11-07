@@ -9,7 +9,8 @@
 		<header>
 		<h1>Tasty Tellus</h1>
 		<h2>Mat med omtanke för planeten!</h2>
-		<div class="nav"><NavBar/></div>
+		<div class="nav-container" >
+			<div class="nav"><NavBar/></div>
 		
 		<div v-if="userStore.loggedIn" class="header-btn">
 			<RouterLink to="/profile">Profil</RouterLink>
@@ -21,6 +22,8 @@
 			<Button @click="userStore.createUser()" btntext="Skapa användare"></Button>
 			<Button @click="userStore.logIn()" btntext="Logga in"></Button>
 		</div>
+	</div>
+		
 	</header>
 	</div>
 	
@@ -44,21 +47,12 @@ const userStore = useUserStore();
 	width: 100%;
 	text-align: center;
 }
-header { 
-	 
+.nav-container {
+	display: flex;	
+	align-items: center;
+	justify-content: center;
 }
-h1 {
-
-}
-.header-btn {
-display: flex;
-justify-content: flex-end;
-}
-Button {
-	margin: 5px;
-}
-.nav {
-	display: flex;
-	justify-content: flex-start;
+.header-btn{
+	margin-left: 70rem;
 }
 </style>
