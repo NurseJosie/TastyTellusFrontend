@@ -1,5 +1,5 @@
 <template>
-	<button>{{btntext}}</button>
+	<button>{{btntxt}}</button>
 </template>
 
 <script setup>
@@ -7,7 +7,7 @@
 // const userStore = useUserStore();
 
 const props = defineProps({
-	btntext: {
+	btntxt: {
 		type: String,
 		default: "Ingen text angiven"
 	}

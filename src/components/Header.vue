@@ -19,8 +19,8 @@
 		</div>
 
 		<div v-else class="header-btn">
-			<Button @click="userStore.createUser()" btntext="Skapa användare"></Button>
-			<Button @click="userStore.logIn()" btntext="Logga in"></Button>
+			<Button @click="userStore.createUser()" btntxt="Skapa användare"></Button>
+			<Button @click="userStore.logIn()" btntxt="Logga in"></Button>
 		</div>
 	</div>
 		

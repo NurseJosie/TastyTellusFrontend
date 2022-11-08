@@ -20,8 +20,7 @@ const props = defineProps({
 		type: String,
 		default: "Ingen länk angiven"
 	},
-    show: Boolean
-
+    show: Boolean // ISOPEN ?
 })
 </script>
 
@@ -46,10 +45,15 @@ const props = defineProps({
           <div class="modal-footer">
             <slot name="footer">
               {{link}}
+
               <button
                 class="modal-default-button"
+                @click="show = false"
+              >X</button>
+            <!--<button
+                class="modal-default-button"
                 @click="$emit('close')"
-              >OK</button>
+              >OK</button>-->
             </slot>
           </div>
         </div>

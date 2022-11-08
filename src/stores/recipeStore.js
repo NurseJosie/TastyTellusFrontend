@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import Popup from "./Popup.vue";
 
 export const useRecipeStore = defineStore({
 	id: 'recipe', 
@@ -22,11 +21,11 @@ export const useRecipeStore = defineStore({
 		// }, 
 	},
 	// getters VISAR info
-	getters: {
-		//metod för att visa receptpopup, lägg in id, title osv i popup
-		showRecipePopup(state){
-			console.log("popup-knapp");
-			return <Popup headertxt={state.title} img={state.imgUrl} introtxt={state.intro} bodytxt={state.body} linktext={state.link}></Popup>
-		}
-	}
+	// getters: {
+	// 	//metod för att visa receptpopup, lägg in id, title osv i popup
+	// 	showRecipePopup(state){
+	// 		return console.log("popup-knapp");
+	// 		//return <Popup headertxt={state.title} img={state.imgUrl} introtxt={state.intro} bodytxt={state.body} linktext={state.link}></Popup>
+	// 	}
+	// }
 })
