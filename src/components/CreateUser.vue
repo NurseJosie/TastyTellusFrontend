@@ -1,1 +1,2 @@
 <!--form med input email, username, password. btn-skapa user. updt DB. skicka user till landingpage(inloggad)-->
+<!--https://jasonwatmore.com/post/2022/07/25/vue-3-pinia-user-registration-and-login-example-tutorial-->

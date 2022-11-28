@@ -14,8 +14,8 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style scoped>
 .dropbtn {
-	background-color: #50372f;
-	color: rgb(228, 228, 228);
+	background-color: var(--accent);
+	color: var(--text);
 	padding: 16px;
 	font-size: 16px;
 	border: none;
@@ -31,23 +31,23 @@ import { RouterLink, RouterView } from "vue-router";
   .dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: rgb(122, 88, 66);
+	background-color: var(--background);
 	width: 20em;
 	box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
   }
   
   .dropdown-content > a {
-	color: rgb(92, 45, 45);
+	color: var(--accent);
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
   }
   
-  .dropdown-content a:hover {background-color: #8b5f5f;;}
+  .dropdown-content a:hover {background-color: var(--header-footer);}
 
   .dropdown:hover .dropdown-content {display: block;}
   
-  .dropdown:hover .dropbtn {background-color: #58402f;}
+  .dropdown:hover .dropbtn {background-color: var(--accent);}
 
 </style>
  

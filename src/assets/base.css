@@ -34,15 +34,17 @@
 
   --section-gap: 160px; 
 
-  --text: #2b1f1f; 
-  --text-darker: #140b0b; 
+  --text: #363636; 
+  --text-darker: #000000; 
 
-  --header-footer: rgba(139, 141, 137, 0.933);
+  --header-footer: #b3dee5;
 
-  --background: var(rgb(145, 133, 133));
+  --accent: #ff9650;
 
-  --border: var(rgb(99, 72, 72));
-  --color-border-hover: var(rgb(119, 73, 73));
+  --background: #fae6b1;
+
+  --border: #ffffff;
+  --color-border-hover: #ffa101;
 
 }
 

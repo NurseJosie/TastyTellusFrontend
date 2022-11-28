@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps({
+  // kan man istället skicka med ett helt objekt? som kommer från user- eller recipestore?
 	headertxt: {
 		type: String,
 		default: "Ingen header angiven"
@@ -22,6 +23,17 @@ const props = defineProps({
 	},
     show: Boolean // ISOPEN ?
 })
+
+// displayFetchedRecipes(){
+//   return
+//   <div>
+// 			  <ul id="example-1">
+//   				<li v-for="item in items" :key="item.message">
+//    				 {{ item.message }}
+//   				</li>
+// 				</ul>
+//         </div>
+// }
 </script>
 
 <template>
@@ -32,12 +44,12 @@ const props = defineProps({
           <div class="modal-header">
             <slot name="header">{{headertxt}}</slot>
           </div>
-		  <!-- <div class="modal-body">
-            <slot name="img">{{img}}</slot>
+		   <div class="modal-body">
+            <slot name="imgUrl">{{img}}</slot>
           </div>
 		  <div class="modal-body">
             <slot name="intro">{{introtxt}}</slot>
-          </div> -->
+          </div> 
           <div class="modal-body">
             <slot name="body">{{bodytxt}}</slot>
           </div>

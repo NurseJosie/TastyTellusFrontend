@@ -7,8 +7,11 @@
 <template>
 	<div class="header-container">
 		<header>
-		<h1>Tasty Tellus</h1>
+		<div class="title-container">
+			<h1>Tasty Tellus</h1>
 		<h2>Mat med omtanke för planeten!</h2>
+		</div>
+		
 		<div class="nav-container" >
 			<div class="nav"><NavBar/></div>
 		
@@ -41,11 +44,14 @@ const userStore = useUserStore();
 <style scoped>
 .header-container {
 	background-color: var(--header-footer);
-	color: var(--text);
+	color: var(--accent);
 	top: 0;
-	position: fixed;
 	width: 100%;
 	text-align: center;
+}
+.title-container {
+	top: 1rem;
+	font-size: 120%;
 }
 .nav-container {
 	display: flex;	

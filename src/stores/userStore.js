@@ -1,42 +1,125 @@
-// använder pinia för state management- user actions
 import { defineStore } from "pinia";
+import config from '../config.js';
 
-export const useUserStore = defineStore({
-	id: 'user', 
+export const useRecipeStore = defineStore('user', {
 	state: () => ({
-		//ska fyllas med data från DB
-		id: "123",
-		loggedIn: false,
-		username: "Användarnamn", 
-		email: "hej@mail.com",
-		likedRecipes: ["recept 1", "recept 2"],
-		comments: ["kommentar 1", "kommentar 2"]
-	}),
-	// actions ÄNDRAR info -> metoder
+		user: {}
+	}), 
 	actions: {
-		logIn(){
-			//visa formulär för inlogg
-			//btn "logga in"
-			//this.loggedIn = true;
-			return console.log("inloggad");
-		}, 
-		logOut(){
-			//this.loggedIn = false;
-			return console.log("utloggad");
-		},
-		createUser(){
-			//visa formulär med input mail, username, password
-			//btn "Skapa"
-			//skapa user och lägg till i DB...
-			return console.log("Skapa användare...");
-		},
-		// showProfile(){
-		// 	// skicka till profile
-		// 	return console.log("Skicka till profil...");
-		// }
+		createUser() {	
+			const action = "/api/Users";
+			const api = config.apiSettings.address + ":" + config.apiSettings.port + action;
+	  
+			fetch(api) // POST
+			  .then(async (res) => {
+				const data = await res.json();
+				console.log(data);
+				const recipesData = data.map(x => {
+					return {
+						id: x.id,
+						title: x.title,
+						imgUrl: x.imageURL,
+						intro: x.intro,
+						ingredients: x.ingredients,
+						instructions: x.instructions,
+						link: x.sourceURL
+					}
+				}); 
+				console.log(recipesData);
+				
+
+				this.recipes = recipesData;
+			  })
+
+			  .catch((error) => console.log(error));
+
+		  },
+		  getUserById() {	
+			const action = "/api/Users";
+			const api = config.apiSettings.address + ":" + config.apiSettings.port + action;
+	  
+			fetch(api) // GET BY ID
+			  .then(async (res) => {
+				const data = await res.json();
+				console.log(data);
+				const recipesData = data.map(x => {
+					return {
+						id: x.id,
+						title: x.title,
+						imgUrl: x.imageURL,
+						intro: x.intro,
+						ingredients: x.ingredients,
+						instructions: x.instructions,
+						link: x.sourceURL
+					}
+				}); 
+				console.log(recipesData);
+				
+
+				this.recipes = recipesData;
+			  })
+
+			  .catch((error) => console.log(error));
+
+		  },
+		  logInUser() {	
+			const action = "/api/Users";
+			const api = config.apiSettings.address + ":" + config.apiSettings.port + action;
+	  
+			fetch(api) // PUT
+			  .then(async (res) => {
+				const data = await res.json();
+				console.log(data);
+				const recipesData = data.map(x => {
+					return {
+						id: x.id,
+						title: x.title,
+						imgUrl: x.imageURL,
+						intro: x.intro,
+						ingredients: x.ingredients,
+						instructions: x.instructions,
+						link: x.sourceURL
+					}
+				}); 
+				console.log(recipesData);
+				
+
+				this.recipes = recipesData;
+			  })
+
+			  .catch((error) => console.log(error));
+
+		  },
+		  updateUserProfile() {	
+			const action = "/api/Users";
+			const api = config.apiSettings.address + ":" + config.apiSettings.port + action;
+	  
+			fetch(api) // PUT
+			  .then(async (res) => {
+				const data = await res.json();
+				console.log(data);
+				const recipesData = data.map(x => {
+					return {
+						id: x.id,
+						title: x.title,
+						imgUrl: x.imageURL,
+						intro: x.intro,
+						ingredients: x.ingredients,
+						instructions: x.instructions,
+						link: x.sourceURL
+					}
+				}); 
+				console.log(recipesData);
+				
+
+				this.recipes = recipesData;
+			  })
+
+			  .catch((error) => console.log(error));
+
+		  },
 	},
-	// getters VISAR info
 	getters: {
-		
+             // VISA PROFIL-INFO MED LISTA PÅ LIKADE RECEPT
 	}
 })

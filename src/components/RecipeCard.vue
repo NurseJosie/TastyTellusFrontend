@@ -1,47 +1,92 @@
+<!-- https://v2.vuejs.org/v2/guide/list.html#v-for-with-an-Object MAPPA UT OBJEKT FRÅN ARRAY-->
+
 <script setup>
 import {useRecipeStore} from '@/stores/recipeStore.js';
 import Button from "./Button.vue";
-import Popup from "./Popup.vue";
 const recipeStore = useRecipeStore();
 
-const togglePopup = () => {
-return Popup.show = true;
+const toggleLikeBtn = () => {
+	// kalla på likemetod från state
+	console.log("jag körs")
 }
+
+recipeStore.getRecipes();
+
 </script>
 
 <template>
 <section class="main-container">
-      <div class="card">
-	  <div class="recipe-container">
-		<Button @click="togglePopup" btntxt="Visa mer"></Button> <!--onclick kalla på metod som visar popup. ONCLICK ISOPEN @CLOSE ISOPEN !ISOPEN-->
-       <Popup headertxt="recipeStore.title" img={state.imgUrl} introtxt={state.intro} bodytxt={state.body} linktext={state.link} show="false"></Popup>
-		<h2>
-			<slot name="recipe-title"></slot>
-		</h2>
-		<p>
-			<slot name="recipe-img"></slot> 
-		</p>
-		<!-- 
-		<h3>
-			<slot name="recipe-intro"></slot>
-		</h3>
-		<p>
-			<slot name="recipe-instr"></slot>
-		</p>
-		<p>
-			<slot name="recipe-link"></slot> 
-			</p> -->
-	  </div>
+      <div class="card recipe-container" v-for="recipe in recipeStore.recipes" :key="recipe.id">
+		<h3 class="title">{{recipe.title}}</h3>
+		<img :src="recipe.imgUrl" class="image"/>
+		<p class="intro">{{recipe.intro}}</p>
+		<p class="ing" v-for="ing in recipe.ingredients">{{ing}}</p>
+		<p class="inst" v-for="inst in recipe.instructions">{{inst}}</p>
+		<a :href="recipe.link" class="link" target="_blank">Originalrecept från ICA</a>
+		<Button btntxt="Testknapp"></Button>
+			<!-- <Button btntxt="Tillagt till din lista" v-if="likeStore.liked"></Button>
+			<Button @click="toggleLikeBtn" btntxt="GILLA" v-if="!likeStore.liked"></Button> -->
+
+			<!--knappen länkar till profil med lista-->
+		<p>Antal likes: </p>
+
 	</div>
 
 </section>
   </template>
   
   <style scoped>
+.title {
+	font-weight: bold;
+	margin: 0.5rem;
+	color: var(--text-darker);
+}
+.image{
+	width: 200px;
+	height: 200px;
+	margin-left: 60px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.intro{
+	margin: 1rem;
+	margin-top: 0.5rem;
+}
+
+.ing {
+margin-left: 1rem;
+font-weight: bold;
+}
+.inst {
+	margin-left: 1rem;
+	margin-right: 1rem;
+	margin-top: 0.5rem;
+}
+
+.link{
+	text-decoration: none;
+	border-radius: 10%;
+}
+.link:hover{
+background-color: var(--background);
+}
+
+Button{
+
+}
+
 
   .main-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: space-around;
+
+	/* display: grid;
+	grid-template-columns: 1fr 1fr 1fr; */
+	color: var(--accent);
+	margin: 3rem;
+	
   }
    .card {
 	margin-top: 2rem;
@@ -50,18 +95,8 @@ return Popup.show = true;
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-	width: 20rem;
-  }
-  
-  /* .recipe-container {
-	justify-content: center;
-	align-items: center;
-  } */
-  h2 {
-	font-size: 1.2rem;
-	font-weight: 500;
-	margin-bottom: 0.4rem;
+	width: 30rem;
 	color: var(--text);
-  } 
+  }
   </style>
   
